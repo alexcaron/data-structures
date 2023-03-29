@@ -1,16 +1,19 @@
 var Stack = function() {
-  var instance = Object.create(Stack.prototype);
+  var instance = Object.create(stackMethods);
   instance.storage = {};
   instance.topIndex = 0;
+  console.log(instance.topIndex);
   return instance;
 };
 
-Stack.prototype.push = function(value) {
+var stackMethods = {};
+
+stackMethods.push = function(value) {
   this.topIndex += 1;
-  this.storage[topIndex] = value;
+  this.storage[this.topIndex] = value;
 };
 
-Stack.prototype.pop = function() {
+stackMethods.pop = function() {
   var indexToPop = this.topIndex;
   if (indexToPop !== 0) {
     this.topIndex -= 1;
@@ -18,7 +21,7 @@ Stack.prototype.pop = function() {
   return this.storage[indexToPop];
 };
 
-Stack.prototype.size = function() {
+stackMethods.size = function() {
   return this.topIndex;
 };
 
