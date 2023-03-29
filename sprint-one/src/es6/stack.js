@@ -11,6 +11,7 @@ class Stack {
 
   pop() {
     var topValue = this.storage[this.topIndex];
+    delete this.storage[this.topIndex];
     if (this.topIndex !== 0) {
       this.topIndex -= 1;
     }
