@@ -14,11 +14,12 @@ stackMethods.push = function(value) {
 };
 
 stackMethods.pop = function() {
-  var indexToPop = this.topIndex;
-  if (indexToPop !== 0) {
+  var valueToPop = this.storage[this.topIndex];
+  delete this.storage[this.topIndex];
+  if (this.topIndex !== 0) {
     this.topIndex -= 1;
   }
-  return this.storage[indexToPop];
+  return valueToPop;
 };
 
 stackMethods.size = function() {
