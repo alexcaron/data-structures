@@ -6,12 +6,14 @@ var Stack = function() {
   return _.extend(instance, stackMethods);
 };
 
-var push = function(value) {
+var stackMethods = {};
+
+stackMethods.push = function(value) {
   this.topIndex += 1;
   this.storage[this.topIndex] = value;
 };
 
-var pop = function() {
+stackMethods.pop = function() {
   var indexToPop = this.topIndex;
   if (indexToPop !== 0) {
     this.topIndex -= 1;
@@ -19,12 +21,6 @@ var pop = function() {
   return this.storage[indexToPop];
 };
 
-var size = function() {
+stackMethods.size = function() {
   return this.topIndex;
-};
-
-var stackMethods = {
-  'push': push,
-  'pop': pop,
-  'size': size
 };
