@@ -10,6 +10,7 @@ Stack.prototype.push = function(value) {
 
 Stack.prototype.pop = function() {
   var topValue = this.storage[this.topIndex];
+  delete this.storage[this.topIndex];
   if (this.topIndex !== 0) {
     this.topIndex -= 1;
   }
