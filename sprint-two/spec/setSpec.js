@@ -24,4 +24,16 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should not add duplicates', function() {
+    set.add('Brendan Frasier');
+    set.add('Brendan Frasier');
+    set.add('Brendan Frasier');
+    var count = 0;
+    set._storage.forEach(function(name) {
+      if (name === 'Brendan Frasier') {
+        count++;
+      }
+    });
+    expect(count).to.equal(1);
+  });
 });
